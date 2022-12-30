@@ -15,7 +15,7 @@ builder.Services.AddCors(options =>
 //              policy.AllowAnyOrigin()
             policy.WithOrigins("https://icy-wave-01c980310.2.azurestaticapps.net")
                    .AllowAnyMethod()
-                   .AllowAnyHeader();
+                   .AllowAnyHeader()
                    .AllowCredentials();
         });
 });
