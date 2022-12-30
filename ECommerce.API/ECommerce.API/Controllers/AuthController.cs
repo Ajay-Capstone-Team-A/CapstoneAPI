@@ -64,6 +64,21 @@ namespace ECommerce.API.Controllers
             _logger.LogInformation("auth/logout completed successfully");
         }
 
+
+        [Route("auth/profile/{id}")]
+        [HttpGet]
+        public async Task<ActionResult<User>> getProfile(int id)
+        {
+            var user = await _context.User.FindAsync(id);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return user;
+        }
+
     }
 
 }
