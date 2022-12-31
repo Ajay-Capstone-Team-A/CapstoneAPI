@@ -12,8 +12,9 @@ builder.Services.AddCors(options =>
     options.AddDefaultPolicy(
         policy =>
         {
-//              policy.AllowAnyOrigin()
-            policy.WithOrigins("https://icy-wave-01c980310.2.azurestaticapps.net")
+            //policy.WithOrigins("http://localhost:4200")
+            //policy.WithOrigins("https://icy-wave-01c980310.2.azurestaticapps.net")
+            policy.WithOrigins("https://icy-wave-01c980310.2.azurestaticapps.net", "http://localhost:4200")
                    .AllowAnyMethod()
                    .AllowAnyHeader()
                    .AllowCredentials();
