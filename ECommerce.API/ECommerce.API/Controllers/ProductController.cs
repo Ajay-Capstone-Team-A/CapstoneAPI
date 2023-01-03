@@ -87,5 +87,28 @@ namespace ECommerce.API.Controllers
 
         }
 
+        [HttpPatch("/restock")]
+        public async Task<ActionResult<Product[]>> Restock([FromBody] ProductDTO[] restockProducts)
+        {
+            _logger.LogInformation("PATCH api/product/restock triggered");
+            List<Product> products = new List<Product>();
+            try
+            {
+                foreach(ProductDTO item in restockProducts)
+                {
+                    Product tmp = await _context.Product.FindAsync(item.id);
+                    tmp.ProductQuantity = tmp.ProductQuantity + item.quantity;
+                    _context.Product.Update(tmp);
+                    _context.SaveAsync();
+                    products.Add(await _context.Product.FindAsync(item.id));
+                }
+                return Ok(products);
+            }
+            catch
+            {
+                return BadRequest();
+            }
+        }
+
     }
 }
