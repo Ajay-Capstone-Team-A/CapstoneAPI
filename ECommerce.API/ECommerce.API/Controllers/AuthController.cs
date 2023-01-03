@@ -1,6 +1,7 @@
 ﻿using ECommerce.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace ECommerce.API.Controllers
 {
@@ -64,6 +65,30 @@ namespace ECommerce.API.Controllers
             _logger.LogInformation("auth/logout completed successfully");
         }
 
+        [Route("auth/profile/{id}")]
+        [HttpPatch]
+        public async Task<IActionResult> PutUser(int id, User user)
+        {
+            _context.User.Entry(user).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveAsync();
+            }
+
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!_context.User.Any(e => e.UserId == id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+            return NoContent();
+        }
     }
 
 }
