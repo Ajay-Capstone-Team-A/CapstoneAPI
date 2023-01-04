@@ -65,7 +65,7 @@ namespace ECommerce.API.Controllers
             _logger.LogInformation("auth/logout completed successfully");
         }
 
-        [Route("auth/profile/{id}")]
+        [Route("auth/profileupdate/{id}")]
         [HttpPatch]
         public async Task<IActionResult> PutUser(int id, User user)
         {
