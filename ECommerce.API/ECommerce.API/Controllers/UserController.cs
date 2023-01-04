@@ -52,19 +52,19 @@ namespace ECommerce.API.Controllers
             }
         }
 
- 
+
 
         //user_id field can be omitted in the request 
         [HttpPost()]
         public async Task<IActionResult> PostUser(User user)
         {
             //looks for this exact user in the db to avoid duplicates
-            var duplicate = await _context.User.Where(u =>  u.UserEmail == user.UserEmail
+            var duplicate = await _context.User.Where(u => u.UserEmail == user.UserEmail
                                                && u.UserFirstName == user.UserFirstName
                                                && u.UserLastName == user.UserLastName
                                                && u.UserPassword == user.UserPassword).ToListAsync();
             //if no duplicate
-            if(duplicate.Count()==0)
+            if (duplicate.Count() == 0)
             {
                 _context.User.Add(user);
                 await _context.SaveAsync();
@@ -75,7 +75,32 @@ namespace ECommerce.API.Controllers
                 return NoContent();
             }
         }
-        
+
+        //finds looks through user db to find email, returns true if email is taken
+        [HttpGet("findEmail/{email}")]
+        public async Task<bool> FindEmail(string email)
+        {
+            var findEmail = await _context.User.Where(u => u.UserEmail == email).ToListAsync();
+            if (findEmail.Count > 0)
+            {
+                return true;
+            }
+            else
+                return false;
+        }
+
+        //returns true if password is taken
+        [HttpGet("findPassword/{password}")]
+        public async Task<bool> FindPassword(string password)
+        {
+            var findPassword = await _context.User.Where(u => u.UserPassword == password).ToListAsync();
+            if (findPassword.Count > 0)
+            {
+                return true;
+            }
+            else
+                return false;
+        }
         /*
         [HttpPut("{id}")]
         public async Task<IActionResult>UpdateUser(ProfileDTO profileInfo,int id)
