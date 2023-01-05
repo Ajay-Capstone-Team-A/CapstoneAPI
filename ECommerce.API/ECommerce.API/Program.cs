@@ -20,8 +20,7 @@ builder.Services.AddCors(options =>
         });
 });
 
-var connectionString = builder.Configuration["ECommerce:ConnectionString"];
-// var connectionString = builder.Configuration.GetConnectionString("ECommerce:ConnectionString");
+var connectionString = builder.Configuration.GetConnectionString("ECommerce:ConnectionString");
 builder.Services.AddDbContext<Context>(opt => opt.UseSqlServer(connectionString));
 builder.Services.AddScoped<IContext>(provider => provider.GetService<Context>());
 
