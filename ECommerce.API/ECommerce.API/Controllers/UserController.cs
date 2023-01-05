@@ -80,8 +80,9 @@ namespace ECommerce.API.Controllers
         [HttpGet("findEmail/{email}")]
         public async Task<bool> FindEmail(string email)
         {
-            var findEmail = await _context.User.Where(u => u.UserEmail == email).ToListAsync();
-            if (findEmail.Count > 0)
+            User findEmail = await _context.User.Where(u => u.UserEmail == email).FirstOrDefaultAsync();
+            Console.WriteLine(findEmail);
+            if (findEmail!=null)
             {
                 return true;
             }
