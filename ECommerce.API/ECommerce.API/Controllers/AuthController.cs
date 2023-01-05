@@ -70,7 +70,30 @@ namespace ECommerce.API.Controllers
             return Ok();
             _logger.LogInformation("auth/logout completed successfully");
         }
+        [Route("auth/profileupdate/{id}")]
+        [HttpPatch]
+        public async Task<IActionResult> PutUser(int id, User user)
+        {
+            _context.User.Entry(user).State = EntityState.Modified;
 
+            try
+            {
+                await _context.SaveAsync();
+            }
+
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!_context.User.Any(e => e.UserId == id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+            return NoContent();
+        }
         //finds looks through user db to find email, returns true if email is taken
         [HttpGet("auth/findEmail/{email}")]
         public async Task<bool> FindEmail(string email)
