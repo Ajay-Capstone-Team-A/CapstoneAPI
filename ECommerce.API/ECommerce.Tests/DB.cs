@@ -12,15 +12,28 @@ namespace ECommerce.Tests
     {
         public Context context { get; set; }
         public DB() {
+            
             var db = new DbContextOptionsBuilder<Context>()
                 .UseInMemoryDatabase(databaseName: "DB").Options;
-            
-            context = new Context(db);
+            bool status = false;
+            if (context != null)
+            {
+                status = false;
+            }
+            else
+            {
+                context = new Context(db);
+                status = true;
+            }
+            if (status)
+            {
+                context.Add(new User { UserId = 1, UserFirstName = "first", UserLastName = "last", UserEmail = "email", UserPassword = "password" });
+                context.Add(new User { UserId = 2, UserFirstName = "first", UserLastName = "last", UserEmail = "email", UserPassword = "password" });
 
-            context.Add(new User {UserId=1,UserFirstName="first",UserLastName="last",UserEmail="email",UserPassword="password"});
-            context.Add(new Product {ProductId=1,ProductName="test",ProductDescription="test",ProductQuantity=1,ProductPrice=10,ProductImage="image"});
-            
-            context.SaveChanges();
+                context.Add(new Product { ProductId = 1, ProductName = "test", ProductDescription = "test", ProductQuantity = 1, ProductPrice = 10, ProductImage = "image" });
+                context.SaveChanges();
+                status = false;
+            }
         }
 
         public void Dispose()
