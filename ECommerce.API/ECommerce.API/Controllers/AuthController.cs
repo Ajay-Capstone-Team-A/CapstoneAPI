@@ -1,6 +1,7 @@
 ﻿using ECommerce.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace ECommerce.API.Controllers
 {
@@ -64,6 +65,20 @@ namespace ECommerce.API.Controllers
             _logger.LogInformation("auth/logout completed successfully");
         }
 
+
+        //finds looks through user db to find email, returns true if email is taken
+        [HttpGet("auth/findEmail/{email}")]
+        public async Task<bool> FindEmail(string email)
+        {
+            User findEmail = await _context.User.Where(u => u.UserEmail == email).FirstOrDefaultAsync();
+            Console.WriteLine(findEmail);
+            if (findEmail != null)
+            {
+                return true;
+            }
+            else
+                return false;
+        }
     }
 
 }
