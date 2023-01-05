@@ -13,9 +13,8 @@ builder.Services.AddCors(options =>
     options.AddDefaultPolicy(
         policy =>
         {
-            //policy.WithOrigins("http://localhost:4200")
-            //policy.WithOrigins("https://icy-wave-01c980310.2.azurestaticapps.net")
-            policy.WithOrigins("https://icy-wave-01c980310.2.azurestaticapps.net", "http://localhost:4200")
+            policy.WithOrigins("https://icy-wave-01c980310.2.azurestaticapps.net", "http://localhost:4200", "https://localhost:7078")
+
                    .AllowAnyMethod()
                    .AllowAnyHeader()
                    .AllowCredentials();
@@ -23,7 +22,9 @@ builder.Services.AddCors(options =>
 });
 
 var connectionString = builder.Configuration["ECommerce:ConnectionString"];
-//var connectionString = builder.Configuration.GetConnectionString("ECommerce:ConnectionString");
+
+// var connectionString = builder.Configuration.GetConnectionString("ECommerce:ConnectionString");
+
 builder.Services.AddDbContext<Context>(opt => opt.UseSqlServer(connectionString));
 builder.Services.AddScoped<IContext>(provider => provider.GetService<Context>());
 
