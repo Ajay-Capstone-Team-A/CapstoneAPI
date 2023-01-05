@@ -13,13 +13,45 @@
         },
         "System.Void ECommerce.API.Controllers.AuthController::.ctor(ECommerce.Models.IContext,Microsoft.Extensions.Logging.ILogger`1<ECommerce.API.Controllers.AuthController>)": {
           "Lines": {
-            "14": 5,
-            "15": 5,
-            "16": 5,
-            "17": 5,
-            "18": 5
+            "14": 7,
+            "15": 7,
+            "16": 7,
+            "17": 7,
+            "18": 7
           },
           "Branches": []
+        }
+      },
+      "ECommerce.API.Controllers.AuthController/<FindEmail>d__6": {
+        "System.Void ECommerce.API.Controllers.AuthController/<FindEmail>d__6::MoveNext()": {
+          "Lines": {
+            "71": 2,
+            "72": 2,
+            "73": 2,
+            "74": 2,
+            "75": 1,
+            "76": 1,
+            "79": 1,
+            "80": 2
+          },
+          "Branches": [
+            {
+              "Line": 74,
+              "Offset": 320,
+              "EndOffset": 322,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 74,
+              "Offset": 320,
+              "EndOffset": 327,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
         }
       },
       "ECommerce.API.Controllers.AuthController/<Login>d__4": {
@@ -38,44 +70,6 @@
             "57": 3
           },
           "Branches": []
-        }
-      },
-      "ECommerce.API.Controllers.AuthController/<PutUser>d__6": {
-        "System.Void ECommerce.API.Controllers.AuthController/<PutUser>d__6::MoveNext()": {
-          "Lines": {
-            "71": 0,
-            "72": 0,
-            "75": 0,
-            "76": 0,
-            "77": 0,
-            "79": 0,
-            "80": 0,
-            "81": 0,
-            "82": 0,
-            "83": 0,
-            "86": 0,
-            "87": 0,
-            "90": 0,
-            "91": 0
-          },
-          "Branches": [
-            {
-              "Line": 81,
-              "Offset": 329,
-              "EndOffset": 331,
-              "Path": 0,
-              "Ordinal": 0,
-              "Hits": 0
-            },
-            {
-              "Line": 81,
-              "Offset": 329,
-              "EndOffset": 346,
-              "Path": 1,
-              "Ordinal": 1,
-              "Hits": 0
-            }
-          ]
         }
       },
       "ECommerce.API.Controllers.AuthController/<Register>d__3": {
@@ -243,148 +237,6 @@
           ]
         }
       }
-    },
-    "C:\\Revature\\CapstoneAPI\\ECommerce.API\\ECommerce.API\\Controllers\\UserController.cs": {
-      "ECommerce.API.Controllers.UserController": {
-        "System.Void ECommerce.API.Controllers.UserController::.ctor(ECommerce.Models.IContext,Microsoft.Extensions.Logging.ILogger`1<ECommerce.API.Controllers.UserController>)": {
-          "Lines": {
-            "15": 7,
-            "16": 7,
-            "17": 7,
-            "18": 7,
-            "19": 7
-          },
-          "Branches": []
-        }
-      },
-      "ECommerce.API.Controllers.UserController/<FindEmail>d__6": {
-        "System.Void ECommerce.API.Controllers.UserController/<FindEmail>d__6::MoveNext()": {
-          "Lines": {
-            "81": 2,
-            "82": 2,
-            "83": 2,
-            "84": 1,
-            "85": 1,
-            "88": 1,
-            "89": 2
-          },
-          "Branches": [
-            {
-              "Line": 83,
-              "Offset": 313,
-              "EndOffset": 315,
-              "Path": 0,
-              "Ordinal": 0,
-              "Hits": 1
-            },
-            {
-              "Line": 83,
-              "Offset": 313,
-              "EndOffset": 320,
-              "Path": 1,
-              "Ordinal": 1,
-              "Hits": 1
-            }
-          ]
-        }
-      },
-      "ECommerce.API.Controllers.UserController/<FindPassword>d__7": {
-        "System.Void ECommerce.API.Controllers.UserController/<FindPassword>d__7::MoveNext()": {
-          "Lines": {
-            "94": 2,
-            "95": 2,
-            "96": 2,
-            "97": 1,
-            "98": 1,
-            "101": 1,
-            "102": 2
-          },
-          "Branches": [
-            {
-              "Line": 96,
-              "Offset": 313,
-              "EndOffset": 315,
-              "Path": 0,
-              "Ordinal": 0,
-              "Hits": 1
-            },
-            {
-              "Line": 96,
-              "Offset": 313,
-              "EndOffset": 320,
-              "Path": 1,
-              "Ordinal": 1,
-              "Hits": 1
-            }
-          ]
-        }
-      },
-      "ECommerce.API.Controllers.UserController/<GetAll>d__4": {
-        "System.Void ECommerce.API.Controllers.UserController/<GetAll>d__4::MoveNext()": {
-          "Lines": {
-            "41": 1,
-            "43": 1,
-            "44": 1,
-            "47": 0,
-            "48": 0,
-            "49": 0,
-            "52": 1
-          },
-          "Branches": []
-        }
-      },
-      "ECommerce.API.Controllers.UserController/<GetUser>d__3": {
-        "System.Void ECommerce.API.Controllers.UserController/<GetUser>d__3::MoveNext()": {
-          "Lines": {
-            "24": 1,
-            "25": 1,
-            "27": 1,
-            "28": 1,
-            "31": 0,
-            "32": 0,
-            "33": 0,
-            "36": 1
-          },
-          "Branches": []
-        }
-      },
-      "ECommerce.API.Controllers.UserController/<PostUser>d__5": {
-        "System.Void ECommerce.API.Controllers.UserController/<PostUser>d__5::MoveNext()": {
-          "Lines": {
-            "59": 1,
-            "61": 1,
-            "62": 1,
-            "63": 1,
-            "64": 1,
-            "66": 1,
-            "67": 0,
-            "68": 0,
-            "69": 0,
-            "70": 0,
-            "73": 1,
-            "74": 1,
-            "76": 1
-          },
-          "Branches": [
-            {
-              "Line": 66,
-              "Offset": 605,
-              "EndOffset": 610,
-              "Path": 0,
-              "Ordinal": 0,
-              "Hits": 0
-            },
-            {
-              "Line": 66,
-              "Offset": 605,
-              "EndOffset": 805,
-              "Path": 1,
-              "Ordinal": 1,
-              "Hits": 1
-            }
-          ]
-        }
-      }
     }
   },
   "ECommerce.Models.dll": {
@@ -398,7 +250,7 @@
         },
         "Microsoft.EntityFrameworkCore.DbSet`1<ECommerce.Models.User> ECommerce.Models.Context::get_User()": {
           "Lines": {
-            "17": 13
+            "17": 8
           },
           "Branches": []
         },
@@ -510,68 +362,35 @@
         }
       }
     },
-    "C:\\Revature\\CapstoneAPI\\ECommerce.API\\ECommerce.Models\\ProfileDTO.cs": {
-      "ECommerce.Models.ProfileDTO": {
-        "System.String ECommerce.Models.ProfileDTO::get_UserFirstName()": {
-          "Lines": {
-            "12": 2
-          },
-          "Branches": []
-        },
-        "System.String ECommerce.Models.ProfileDTO::get_UserLastName()": {
-          "Lines": {
-            "13": 2
-          },
-          "Branches": []
-        },
-        "System.String ECommerce.Models.ProfileDTO::get_UserEmail()": {
-          "Lines": {
-            "14": 2
-          },
-          "Branches": []
-        },
-        "System.Void ECommerce.Models.ProfileDTO::.ctor(System.String,System.String,System.String)": {
-          "Lines": {
-            "16": 1,
-            "17": 1,
-            "18": 1,
-            "19": 1,
-            "20": 1,
-            "21": 1
-          },
-          "Branches": []
-        }
-      }
-    },
     "C:\\Revature\\CapstoneAPI\\ECommerce.API\\ECommerce.Models\\User.cs": {
       "ECommerce.Models.User": {
         "System.Int32 ECommerce.Models.User::get_UserId()": {
           "Lines": {
-            "11": 9
+            "11": 8
           },
           "Branches": []
         },
         "System.String ECommerce.Models.User::get_UserFirstName()": {
           "Lines": {
-            "12": 11
+            "12": 9
           },
           "Branches": []
         },
         "System.String ECommerce.Models.User::get_UserLastName()": {
           "Lines": {
-            "13": 11
+            "13": 9
           },
           "Branches": []
         },
         "System.String ECommerce.Models.User::get_UserEmail()": {
           "Lines": {
-            "14": 12
+            "14": 10
           },
           "Branches": []
         },
         "System.String ECommerce.Models.User::get_UserPassword()": {
           "Lines": {
-            "15": 11
+            "15": 9
           },
           "Branches": []
         },
@@ -583,14 +402,14 @@
         },
         "System.Void ECommerce.Models.User::.ctor(System.Int32,System.String,System.String,System.String,System.String)": {
           "Lines": {
-            "18": 4,
-            "19": 4,
-            "20": 4,
-            "21": 4,
-            "22": 4,
-            "23": 4,
-            "24": 4,
-            "26": 4
+            "18": 3,
+            "19": 3,
+            "20": 3,
+            "21": 3,
+            "22": 3,
+            "23": 3,
+            "24": 3,
+            "26": 3
           },
           "Branches": []
         },
