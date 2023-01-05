@@ -47,6 +47,12 @@ namespace ECommerce.API.Controllers
             {
                  t =  _context.User.Where(x=>x.UserPassword == LR.password && x.UserEmail == LR.email).FirstOrDefault<User>();
                 _logger.LogInformation("auth/login completed successfully");
+                if (t != null)
+                {
+                    return t;
+                }
+                else
+                    return BadRequest();
             }
             catch
             {
