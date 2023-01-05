@@ -178,26 +178,7 @@ namespace ECommerce.Tests
             Assert.Equal("email", user.UserEmail);
             Assert.Equal("password", user.UserPassword);
         }
-        /*[Fact]
-        public void PutUser() {
-            var mockLog = new Mock<ILogger<AuthController>>();
-            var controller = new AuthController(context, mockLog.Object);
 
-            var user = new User(2,"test","test", "test", "test");
-            //ProductDTO product = new ProductDTO();
-
-
-            //product[0].id = 1;
-            //product[0].quantity = 1;
-
-            var result = controller.PutUser(user.UserId,user).Result;
-
-            //Assert.Equal(productExpected, result);
-            //Assert.Equal("",result.ToString()); ;
-            Assert.Equal("",result.ToString());
-            Assert.NotNull(result);
-
-        }*/
         [Fact]
         public void restock() {
             var mockLog = new Mock<ILogger<ProductController>>();
@@ -236,39 +217,6 @@ namespace ECommerce.Tests
 
         }
         
-        /*[Fact]
-        public void GetUser_SpecificUser() {
-            var mockLog = new Mock<ILogger<UserController>>();
-            var controller = new UserController(context,mockLog.Object);
-            //var user = new User("first","last","email","password");
-            //var productExpected = new Product(1, "test", 1, 10, "test", "test");
-
-            var result = controller.GetUser(1).Result;
-            Assert.NotNull(result);
-        }
-        [Fact]
-        public void GetAll_Users() {
-            var mockLog = new Mock<ILogger<UserController>>();
-            var controller = new UserController(context, mockLog.Object);
-            //var user = new User("test","test","test","test");
-            //var productExpected = new Product(1, "test", 1, 10, "test", "test");
-            var result = controller.GetAll().Result;
-            //Assert.Equal(productExpected, result);
-            Assert.NotNull(result);
-        }
-        /*[Fact]
-        public void PostUser(){
-            //Task SaveAsync() { return Task.FromResult("s"); }
-            var mockLog = new Mock<ILogger<UserController>>();
-            var controller = new UserController(context, mockLog.Object);
-            var user = new User(33,"test", "test", "test", "test");
-            var mockSave = new Mock<Context>();
-            mockSave.Setup(m => m.SaveAsync()).Returns(Task.CompletedTask);
-            //mockSave.Setup(m => m.SaveAsync());
-            var result = controller.PostUser(user).Result;
-
-            Assert.NotNull(result);
-        }*/
         [Fact]
         public void FindEmail()
         {
@@ -289,47 +237,6 @@ namespace ECommerce.Tests
 
             Assert.Equal("False",result.ToString());
         }
-        /*[Fact]
-        public void FindPassword()
-        {
-            var mockLog = new Mock<ILogger<UserController>>();
-            var controller = new UserController(context, mockLog.Object);
-
-            var result = controller.FindPassword("password").Result;
-
-            Assert.Equal("True", result.ToString());
-        }
-        [Fact]
-        public void FindPassword_invalid()
-        {
-            var mockLog = new Mock<ILogger<UserController>>();
-            var controller = new UserController(context, mockLog.Object);
-
-            var result = controller.FindPassword("invalid").Result;
-
-            Assert.Equal("False", result.ToString());
-        }
-        [Fact]
-        public void PostUser() {
-            var mockLog = new Mock<ILogger<UserController>>();
-            var controller = new UserController(context, mockLog.Object);
-            User u = new User(1, "first", "last", "email", "password");
-            var result = controller.PostUser(u).Result;
-            Assert.Equal("Microsoft.AspNetCore.Mvc.NoContentResult", result.ToString());
-
-        }
-        [Fact]
-        public void PostUser_in()
-        {
-            var mockLog = new Mock<ILogger<UserController>>();
-            var controller = new UserController(context, mockLog.Object);
-            User u = new User(3, "d", "d", "d", "d");
-            var mockCon = new Mock<IContext>();
-            mockCon.Setup(m => m.SaveAsync()).Verifiable();
-            
-            var result = controller.PostUser(u).Result;
-            Assert.Equal("Microsoft.AspNetCore.Mvc.NoContentResult", result.ToString());
-
-        }*/
+        
     }
 }
