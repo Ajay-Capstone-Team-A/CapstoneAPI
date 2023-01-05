@@ -45,7 +45,7 @@ namespace ECommerce.API.Controllers
             User t;
             try
             {
-                 t =  _context.User.Where(x=>x.UserPassword == LR.password && x.UserEmail == LR.email).FirstOrDefault<User>();
+                t = _context.User.Where(x => x.UserPassword == LR.password && x.UserEmail == LR.email).FirstOrDefault<User>();
                 _logger.LogInformation("auth/login completed successfully");
                 if (t != null)
                 {
@@ -70,6 +70,7 @@ namespace ECommerce.API.Controllers
             return Ok();
             _logger.LogInformation("auth/logout completed successfully");
         }
+        
         [Route("auth/profileupdate/{id}")]
         [HttpPatch]
         public async Task<IActionResult> PutUser(int id, User user)
@@ -107,8 +108,8 @@ namespace ECommerce.API.Controllers
             else
                 return false;
         }
-    }
 
+    }
 }
 
     

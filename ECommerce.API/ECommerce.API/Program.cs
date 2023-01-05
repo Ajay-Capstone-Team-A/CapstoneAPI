@@ -13,17 +13,19 @@ builder.Services.AddCors(options =>
     options.AddDefaultPolicy(
         policy =>
         {
-            policy.WithOrigins("https://icy-wave-01c980310.2.azurestaticapps.net", "http://localhost:4200", "https://localhost:7078")
 
+            policy.WithOrigins("https://icy-wave-01c980310.2.azurestaticapps.net", "http://localhost:4200", "https://localhost:7078")
                    .AllowAnyMethod()
                    .AllowAnyHeader()
                    .AllowCredentials();
         });
 });
 
+
 //swap these connection string lines (uncomment one and comment the other) when switching from local to deployed API
  var connectionString = builder.Configuration["ECommerce:ConnectionString"];
 //var connectionString = builder.Configuration.GetConnectionString("ECommerce:ConnectionString");
+
 
 builder.Services.AddDbContext<Context>(opt => opt.UseSqlServer(connectionString));
 builder.Services.AddScoped<IContext>(provider => provider.GetService<Context>());
