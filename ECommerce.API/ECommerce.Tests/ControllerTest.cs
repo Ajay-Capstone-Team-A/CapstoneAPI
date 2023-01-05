@@ -177,6 +177,6 @@ namespace ECommerce.Tests
             Assert.Equal("email", user.UserEmail);
             Assert.Equal("password", user.UserPassword);
         }
-
+        
     }
 }
