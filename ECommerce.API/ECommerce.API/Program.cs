@@ -21,9 +21,9 @@ builder.Services.AddCors(options =>
         });
 });
 
-var connectionString = builder.Configuration["ECommerce:ConnectionString"];
-
-// var connectionString = builder.Configuration.GetConnectionString("ECommerce:ConnectionString");
+//swap these connection string lines (uncomment one and comment the other) when switching from local to deployed API
+ var connectionString = builder.Configuration["ECommerce:ConnectionString"];
+//var connectionString = builder.Configuration.GetConnectionString("ECommerce:ConnectionString");
 
 builder.Services.AddDbContext<Context>(opt => opt.UseSqlServer(connectionString));
 builder.Services.AddScoped<IContext>(provider => provider.GetService<Context>());
