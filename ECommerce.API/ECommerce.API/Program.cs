@@ -23,7 +23,7 @@ builder.Services.AddCors(options =>
 
 
 //swap these connection string lines (uncomment one and comment the other) when switching from local to deployed API
- //var connectionString = builder.Configuration["ECommerce:ConnectionString"];
+//var connectionString = builder.Configuration["ECommerce:ConnectionString"];
 var connectionString = builder.Configuration.GetConnectionString("ECommerce:ConnectionString");
 
 
