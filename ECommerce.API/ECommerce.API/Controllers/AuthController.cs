@@ -45,8 +45,14 @@ namespace ECommerce.API.Controllers
             User t;
             try
             {
-                 t =  _context.User.Where(x=>x.UserPassword == LR.password && x.UserEmail == LR.email).FirstOrDefault<User>();
+                t = _context.User.Where(x => x.UserPassword == LR.password && x.UserEmail == LR.email).FirstOrDefault<User>();
                 _logger.LogInformation("auth/login completed successfully");
+                if (t != null)
+                {
+                    return t;
+                }
+                else
+                    return BadRequest();
             }
             catch
             {
@@ -64,6 +70,7 @@ namespace ECommerce.API.Controllers
             return Ok();
             _logger.LogInformation("auth/logout completed successfully");
         }
+
 
         [Route("auth/profileupdate/{id}")]
         [HttpPatch]
@@ -88,9 +95,23 @@ namespace ECommerce.API.Controllers
                 }
             }
             return NoContent();
-        }
-    }
 
+        }
+        //finds looks through user db to find email, returns true if email is taken
+        [HttpGet("auth/findEmail/{email}")]
+        public async Task<bool> FindEmail(string email)
+        {
+            User findEmail = await _context.User.Where(u => u.UserEmail == email).FirstOrDefaultAsync();
+            Console.WriteLine(findEmail);
+            if (findEmail != null)
+            {
+                return true;
+            }
+            else
+                return false;
+        }
+
+    }
 }
 
     
