@@ -87,7 +87,7 @@ namespace ECommerce.API.Controllers
 
         }
 
-        [HttpPatch("/restock")]
+        [HttpPatch("restock")]
         public async Task<ActionResult<Product[]>> Restock([FromBody] ProductDTO[] restockProducts)
         {
             _logger.LogInformation("PATCH api/product/restock triggered");
@@ -110,5 +110,25 @@ namespace ECommerce.API.Controllers
             }
         }
 
+        [HttpGet("getReviews/{id}")]
+        public async Task<ActionResult<IEnumerable<Review>>> getReviews(int id)
+        {
+            var reviews = await _context.Review.Where(r => r.ProductId == id).ToListAsync();
+            return reviews;
+        }
+
+        [HttpGet("getReviewAverage/{id}")]
+        public async Task<ActionResult<double>> getReviewAverage(int id)
+        {
+            double average = 0;
+            var reviews = await _context.Review.Where(r => r.ProductId == id).ToListAsync();
+            List<int> scores = new List<int>();
+
+            foreach(Review review in reviews)
+                scores.Add(review.Rating);
+            
+            average = scores.Average();
+            return average;
+        }
     }
 }

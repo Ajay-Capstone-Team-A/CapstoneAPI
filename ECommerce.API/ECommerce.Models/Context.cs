@@ -16,6 +16,8 @@ namespace ECommerce.Models
         public DbSet<Product> Product { get; set; } = null!;
         public DbSet<User> User { get; set; } = null!;
 
+        public DbSet<Review> Review { get; set; } = null!;
+
         public Task SaveAsync() { return SaveChangesAsync(); }
     }
 }
