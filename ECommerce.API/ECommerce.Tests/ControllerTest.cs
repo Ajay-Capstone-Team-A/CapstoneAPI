@@ -272,5 +272,21 @@ namespace ECommerce.Tests
 
 
         }
+        [Fact]
+        public void getReviewAverage() {
+            var mockLog = new Mock<ILogger<ProductController>>();
+            var controller = new ProductController(context, mockLog.Object);
+            var result = controller.getReviewAverage(1).Result.Value;
+            Assert.Equal(3,result);
+        }
+        [Fact]
+        public void CallReview()
+        {
+            Review r = new Review(1,1,1,"",1);
+            Review rr = new Review(1,1,"",1);
+            
+            Assert.Equal(r.Comment, rr.Comment);
+
+        }
     }
 }
