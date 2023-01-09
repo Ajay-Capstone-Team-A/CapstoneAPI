@@ -237,6 +237,40 @@ namespace ECommerce.Tests
 
             Assert.Equal("False",result.ToString());
         }
-        
+        [Fact]
+        public void GetOne_Review() {
+            var mockLog = new Mock<ILogger<ProductController>>();
+            var controller = new ReviewController(context, mockLog.Object);
+
+            var result = controller.GetOne(1).Result;
+            Assert.Equal("Microsoft.AspNetCore.Mvc.OkObjectResult", result.ToString());
+        }
+        [Fact]
+        public void PostReview_Review()
+        {
+            var mockLog = new Mock<ILogger<ProductController>>();
+            var controller = new ReviewController(context, mockLog.Object);
+            var review = new Review(1,1,"1",1);
+            var review2 = new Review();
+            review2.Comment = "1";
+            var result = controller.PostReview(review).Result;
+            Assert.Equal("Microsoft.AspNetCore.Mvc.ActionResult`1[ECommerce.Models.Review]", result.ToString());
+            Assert.Equal("1",review2.Comment);
+        }
+        [Fact]
+        public void getReviews() {
+            var mockLog = new Mock<ILogger<ProductController>>();
+            var controller = new ProductController(context, mockLog.Object);
+            var result = controller.getReviews(1).Result.Value.First();
+            ReviewDTO expected = new ReviewDTO("first","last",1,"Good",5);
+
+            Assert.Equal(expected.UserFirstName, result.UserFirstName);
+            Assert.Equal(expected.UserLastName, result.UserLastName);
+            Assert.Equal(expected.Comment, result.Comment);
+            Assert.Equal(expected.ProductId, result.ProductId);
+            Assert.Equal(expected.Rating, result.Rating);
+
+
+        }
     }
 }
