@@ -70,8 +70,7 @@ namespace ECommerce.API.Controllers
             return Ok();
             _logger.LogInformation("auth/logout completed successfully");
         }
-
-
+        
         [Route("auth/profileupdate/{id}")]
         [HttpPatch]
         public async Task<IActionResult> PutUser(int id, User user)
@@ -95,7 +94,6 @@ namespace ECommerce.API.Controllers
                 }
             }
             return NoContent();
-
         }
         //finds looks through user db to find email, returns true if email is taken
         [HttpGet("auth/findEmail/{email}")]

@@ -1,7 +1,8 @@
-using ECommerce.Data;
 using ECommerce.Models;
 using Microsoft.AspNetCore.DataProtection.Repositories;
 using Microsoft.EntityFrameworkCore;
+using System.Diagnostics.CodeAnalysis;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,7 +13,7 @@ builder.Services.AddCors(options =>
     options.AddDefaultPolicy(
         policy =>
         {
-//              policy.AllowAnyOrigin()
+
             policy.WithOrigins("https://icy-wave-01c980310.2.azurestaticapps.net", "http://localhost:4200", "https://localhost:7078")
                    .AllowAnyMethod()
                    .AllowAnyHeader()
@@ -20,13 +21,18 @@ builder.Services.AddCors(options =>
         });
 });
 
+
+//swap these connection string lines (uncomment one and comment the other) when switching from local to deployed API
+//var connectionString = builder.Configuration["ECommerce:ConnectionString"];
 var connectionString = builder.Configuration.GetConnectionString("ECommerce:ConnectionString");
+
+
 builder.Services.AddDbContext<Context>(opt => opt.UseSqlServer(connectionString));
 builder.Services.AddScoped<IContext>(provider => provider.GetService<Context>());
 
 
-builder.Services.AddSingleton<IRepository>
-    (sp => new SQLRepository(connectionString, sp.GetRequiredService<ILogger<SQLRepository>>()));
+//builder.Services.AddSingleton<IRepository>
+//   (sp => new SQLRepository(connectionString, sp.GetRequiredService<ILogger<SQLRepository>>()));
 
 builder.Services.AddControllers();
 
