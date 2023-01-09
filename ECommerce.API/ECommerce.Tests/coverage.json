@@ -1,6 +1,6 @@
 {
   "ECommerce.API.dll": {
-    "C:\\Revature\\CapstoneAPI\\ECommerce.API\\ECommerce.API\\Controllers\\AuthController.cs": {
+    "C:\\REvature\\CapstoneAPI\\ECommerce.API\\ECommerce.API\\Controllers\\AuthController.cs": {
       "ECommerce.API.Controllers.AuthController": {
         "Microsoft.AspNetCore.Mvc.ActionResult ECommerce.API.Controllers.AuthController::Logout()": {
           "Lines": {
@@ -148,7 +148,7 @@
         }
       }
     },
-    "C:\\Revature\\CapstoneAPI\\ECommerce.API\\ECommerce.API\\Controllers\\ProductController.cs": {
+    "C:\\REvature\\CapstoneAPI\\ECommerce.API\\ECommerce.API\\Controllers\\ProductController.cs": {
       "ECommerce.API.Controllers.ProductController": {
         "System.Void ECommerce.API.Controllers.ProductController::.ctor(ECommerce.Models.IContext,Microsoft.Extensions.Logging.ILogger`1<ECommerce.API.Controllers.ProductController>)": {
           "Lines": {
@@ -157,6 +157,14 @@
             "18": 9,
             "19": 9,
             "20": 9
+          },
+          "Branches": []
+        }
+      },
+      "ECommerce.API.Controllers.ProductController/<>c": {
+        "System.Int32 ECommerce.API.Controllers.ProductController/<>c::<getReviews>b__7_0(ECommerce.Models.ReviewDTO)": {
+          "Lines": {
+            "125": 3
           },
           "Branches": []
         }
@@ -297,19 +305,19 @@
       "ECommerce.API.Controllers.ProductController/<getReviewAverage>d__8": {
         "System.Void ECommerce.API.Controllers.ProductController/<getReviewAverage>d__8::MoveNext()": {
           "Lines": {
-            "130": 1,
             "131": 1,
             "132": 1,
             "133": 1,
-            "135": 7,
-            "136": 2,
-            "138": 1,
+            "134": 1,
+            "136": 7,
+            "137": 2,
             "139": 1,
-            "140": 1
+            "140": 1,
+            "141": 1
           },
           "Branches": [
             {
-              "Line": 135,
+              "Line": 136,
               "Offset": 399,
               "EndOffset": 341,
               "Path": 1,
@@ -317,7 +325,7 @@
               "Hits": 2
             },
             {
-              "Line": 135,
+              "Line": 136,
               "Offset": 399,
               "EndOffset": 401,
               "Path": 0,
@@ -339,13 +347,13 @@
             "121": 2,
             "122": 2,
             "123": 2,
-            "125": 1,
-            "126": 1
+            "126": 1,
+            "127": 1
           },
           "Branches": [
             {
               "Line": 118,
-              "Offset": 790,
+              "Offset": 806,
               "EndOffset": 352,
               "Path": 1,
               "Ordinal": 1,
@@ -353,8 +361,8 @@
             },
             {
               "Line": 118,
-              "Offset": 790,
-              "EndOffset": 795,
+              "Offset": 806,
+              "EndOffset": 811,
               "Path": 0,
               "Ordinal": 0,
               "Hits": 1
@@ -363,7 +371,7 @@
         }
       }
     },
-    "C:\\Revature\\CapstoneAPI\\ECommerce.API\\ECommerce.API\\Controllers\\ReviewController.cs": {
+    "C:\\REvature\\CapstoneAPI\\ECommerce.API\\ECommerce.API\\Controllers\\ReviewController.cs": {
       "ECommerce.API.Controllers.ReviewController": {
         "System.Void ECommerce.API.Controllers.ReviewController::.ctor(ECommerce.Models.IContext,Microsoft.Extensions.Logging.ILogger`1<ECommerce.API.Controllers.ProductController>)": {
           "Lines": {
@@ -415,7 +423,7 @@
     }
   },
   "ECommerce.Models.dll": {
-    "C:\\Revature\\CapstoneAPI\\ECommerce.API\\ECommerce.Models\\Context.cs": {
+    "C:\\REvature\\CapstoneAPI\\ECommerce.API\\ECommerce.Models\\Context.cs": {
       "ECommerce.Models.Context": {
         "Microsoft.EntityFrameworkCore.DbSet`1<ECommerce.Models.Product> ECommerce.Models.Context::get_Product()": {
           "Lines": {
@@ -451,7 +459,7 @@
         }
       }
     },
-    "C:\\Revature\\CapstoneAPI\\ECommerce.API\\ECommerce.Models\\Product.cs": {
+    "C:\\REvature\\CapstoneAPI\\ECommerce.API\\ECommerce.Models\\Product.cs": {
       "ECommerce.Models.Product": {
         "System.Int32 ECommerce.Models.Product::get_ProductId()": {
           "Lines": {
@@ -511,7 +519,7 @@
         }
       }
     },
-    "C:\\Revature\\CapstoneAPI\\ECommerce.API\\ECommerce.Models\\ProductDTO.cs": {
+    "C:\\REvature\\CapstoneAPI\\ECommerce.API\\ECommerce.Models\\ProductDTO.cs": {
       "ECommerce.Models.ProductDTO": {
         "System.Int32 ECommerce.Models.ProductDTO::get_id()": {
           "Lines": {
@@ -543,11 +551,11 @@
         }
       }
     },
-    "C:\\Revature\\CapstoneAPI\\ECommerce.API\\ECommerce.Models\\Review.cs": {
+    "C:\\REvature\\CapstoneAPI\\ECommerce.API\\ECommerce.Models\\Review.cs": {
       "ECommerce.Models.Review": {
         "System.Int32 ECommerce.Models.Review::get_ReviewId()": {
           "Lines": {
-            "15": 3
+            "15": 5
           },
           "Branches": []
         },
@@ -607,17 +615,23 @@
         }
       }
     },
-    "C:\\Revature\\CapstoneAPI\\ECommerce.API\\ECommerce.Models\\ReviewDTO.cs": {
+    "C:\\REvature\\CapstoneAPI\\ECommerce.API\\ECommerce.Models\\ReviewDTO.cs": {
       "ECommerce.Models.ReviewDTO": {
+        "System.Int32 ECommerce.Models.ReviewDTO::get_ReviewId()": {
+          "Lines": {
+            "11": 4
+          },
+          "Branches": []
+        },
         "System.String ECommerce.Models.ReviewDTO::get_UserFirstName()": {
           "Lines": {
-            "11": 5
+            "12": 5
           },
           "Branches": []
         },
         "System.String ECommerce.Models.ReviewDTO::get_UserLastName()": {
           "Lines": {
-            "12": 5
+            "13": 5
           },
           "Branches": []
         },
@@ -641,20 +655,34 @@
         },
         "System.Void ECommerce.Models.ReviewDTO::.ctor(System.String,System.String,System.Int32,System.String,System.Int32)": {
           "Lines": {
-            "18": 3,
-            "19": 3,
-            "20": 3,
-            "21": 3,
-            "22": 3,
-            "23": 3,
-            "24": 3,
-            "25": 3
+            "18": 1,
+            "19": 1,
+            "20": 1,
+            "21": 1,
+            "22": 1,
+            "23": 1,
+            "24": 1,
+            "25": 1
+          },
+          "Branches": []
+        },
+        "System.Void ECommerce.Models.ReviewDTO::.ctor(System.Int32,System.String,System.String,System.Int32,System.String,System.Int32)": {
+          "Lines": {
+            "27": 2,
+            "28": 2,
+            "29": 2,
+            "30": 2,
+            "31": 2,
+            "32": 2,
+            "33": 2,
+            "34": 2,
+            "35": 2
           },
           "Branches": []
         }
       }
     },
-    "C:\\Revature\\CapstoneAPI\\ECommerce.API\\ECommerce.Models\\User.cs": {
+    "C:\\REvature\\CapstoneAPI\\ECommerce.API\\ECommerce.Models\\User.cs": {
       "ECommerce.Models.User": {
         "System.Int32 ECommerce.Models.User::get_UserId()": {
           "Lines": {
@@ -719,7 +747,7 @@
         }
       }
     },
-    "C:\\Revature\\CapstoneAPI\\ECommerce.API\\ECommerce.Models\\UserDTO.cs": {
+    "C:\\REvature\\CapstoneAPI\\ECommerce.API\\ECommerce.Models\\UserDTO.cs": {
       "ECommerce.Models.UserDTO": {
         "System.String ECommerce.Models.UserDTO::get_email()": {
           "Lines": {
