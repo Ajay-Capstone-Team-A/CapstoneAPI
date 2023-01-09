@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 
 namespace ECommerce.API.Controllers
 {
@@ -86,7 +87,7 @@ namespace ECommerce.API.Controllers
 
         }
 
-        [HttpPatch("/restock")]
+        [HttpPatch("restock")]
         public async Task<ActionResult<Product[]>> Restock([FromBody] ProductDTO[] restockProducts)
         {
             _logger.LogInformation("PATCH api/product/restock triggered");
@@ -107,6 +108,35 @@ namespace ECommerce.API.Controllers
             {
                 return BadRequest();
             }
+        }
+
+        [HttpGet("getReviews/{id}")]
+        public async Task<ActionResult<IEnumerable<ReviewDTO>>> getReviews(int id)
+        {
+            List<ReviewDTO> reviewsDTO = new List<ReviewDTO>();
+            var reviews = await _context.Review.Where(r => r.ProductId == id).ToListAsync();
+            foreach(Review review in reviews)
+            {
+                var user = await _context.User.Where(u => u.UserId == review.UserId).FirstOrDefaultAsync();
+                ReviewDTO reviewDTO = new ReviewDTO(user.UserFirstName, user.UserLastName, review.ProductId, review.Comment, review.Rating);
+                reviewsDTO.Add(reviewDTO);
+            }
+
+            return reviewsDTO;
+        }
+
+        [HttpGet("getReviewAverage/{id}")]
+        public async Task<ActionResult<double>> getReviewAverage(int id)
+        {
+            double average = 0;
+            var reviews = await _context.Review.Where(r => r.ProductId == id).ToListAsync();
+            List<int> scores = new List<int>();
+
+            foreach(Review review in reviews)
+                scores.Add(review.Rating);
+            
+            average = scores.Average();
+            return average;
         }
     }
 }
