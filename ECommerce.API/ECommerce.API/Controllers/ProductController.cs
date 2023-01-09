@@ -3,6 +3,7 @@ using ECommerce.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 
 namespace ECommerce.API.Controllers
 {
@@ -111,10 +112,18 @@ namespace ECommerce.API.Controllers
         }
 
         [HttpGet("getReviews/{id}")]
-        public async Task<ActionResult<IEnumerable<Review>>> getReviews(int id)
+        public async Task<ActionResult<IEnumerable<ReviewDTO>>> getReviews(int id)
         {
+            List<ReviewDTO> reviewsDTO = new List<ReviewDTO>();
             var reviews = await _context.Review.Where(r => r.ProductId == id).ToListAsync();
-            return reviews;
+            foreach(Review review in reviews)
+            {
+                var user = await _context.User.Where(u => u.UserId == review.UserId).FirstOrDefaultAsync();
+                ReviewDTO reviewDTO = new ReviewDTO(user.UserFirstName, user.UserLastName, review.ProductId, review.Comment, review.Rating);
+                reviewsDTO.Add(reviewDTO);
+            }
+
+            return reviewsDTO;
         }
 
         [HttpGet("getReviewAverage/{id}")]
