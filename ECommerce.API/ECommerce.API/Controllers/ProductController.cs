@@ -118,11 +118,12 @@ namespace ECommerce.API.Controllers
             foreach(Review review in reviews)
             {
                 var user = await _context.User.Where(u => u.UserId == review.UserId).FirstOrDefaultAsync();
-                ReviewDTO reviewDTO = new ReviewDTO(user.UserFirstName, user.UserLastName, review.ProductId, review.Comment, review.Rating);
+                ReviewDTO reviewDTO = new ReviewDTO(review.ReviewId,user.UserFirstName, user.UserLastName, review.ProductId, review.Comment, review.Rating);
                 reviewsDTO.Add(reviewDTO);
             }
 
-            return reviewsDTO;
+            List<ReviewDTO> sorted = reviewsDTO.OrderBy(r => r.ReviewId).ToList();
+            return sorted;
         }
 
         [HttpGet("getReviewAverage/{id}")]
