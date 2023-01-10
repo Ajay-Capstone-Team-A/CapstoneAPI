@@ -33,6 +33,10 @@ jobs:
         with:
           name: .net-app
           path: ${{env.DOTNET_ROOT}}/myapp
+          
+      - name: dotnet test
+        run: dotnet test ECommerce.API --no-build /p:CollectCoverage=true 
+
 
   deploy:
     runs-on: windows-latest
